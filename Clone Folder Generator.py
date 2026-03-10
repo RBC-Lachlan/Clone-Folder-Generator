@@ -109,20 +109,25 @@ def CreateMiscellaneousFolders(FolderName):
 
     try:
 
+        # Creates the Folder Path to thgen be passed down.
         FolderNamingScheme = f"{FolderName} - {ParentFolder}"
         FolderPath = os.path.join(ParentFolder, FolderNamingScheme)
 
+        # Creates Folder and the prints to the user that it has been created successfully.
         os.mkdir(FolderPath)
         print(f"Sub Folder '{FolderNamingScheme}' created successfully.")
 
+        # Loops through creating sub folders from earlier.
         for SubFolderName in SubFolderNames:
 
+            # Creates the Folder Path to thgen be passed down
             SubFolderNamingScheme = f"{FolderName} - {ParentFolder} - {SubFolderName}"
             SubFolderPath = os.path.join(ParentFolder, FolderNamingScheme, SubFolderNamingScheme)
 
             # Passes down the Sub Folders Name, the Naming Scheme to later be turned into the "ChangeLogTitle" and the path of where then file will be created.
             SubFolderCreator(SubFolderPath, SubFolderNamingScheme, SubFolderName)
 
+        # prints to the user saying that the current folder has finished creation.
         print(colored("========================================================================", "light_blue"))
         print(colored(f"*** {FolderNamingScheme} has been created successfully ***", "light_red"))
         print(colored("========================================================================", "light_blue"))
@@ -196,3 +201,4 @@ else:
 # Enter to exit out of the CMD Window. (Otherwise it would disapear after completion)
 finally:
     input("Press Enter to exit...")
+
